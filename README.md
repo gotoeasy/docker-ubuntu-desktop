@@ -16,11 +16,11 @@ docker run -d -p 22:22 -p 5900:5900 -e PASSWD=abcd1234 -e SIZE=1024x768 gotoeasy
 - [x] 用户：`root`
 - [x] 默认SSH密码：`123456`
 - [x] 默认VNC密码：`123456`
-- [x] 预装`wget`、`curl`、`firefox`等个别常用软件
+- [x] 预装`wget`、`curl`、`firefox`等少许常用软件
 - [x] 时区`Asia/Shanghai`
 - [x] 中文桌面环境`xfce`
 - [x] 中文输入法
-- [x] 支持和宿主机之间相互复制粘贴文本
+- [x] 远程桌面支持和本地机器之间相互复制粘贴文本
 
 # 截图
 ![https://github.com/gotoeasy/docker-ubuntu-desktop/blob/master/vnc.jpg](https://github.com/gotoeasy/docker-ubuntu-desktop/blob/master/vnc.jpg)
