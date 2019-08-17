@@ -1,5 +1,5 @@
 # 基础镜像
-FROM ubuntu:18.04
+FROM ubuntu:16.04
 # 维护者信息
 MAINTAINER gotoeasy <gotoeasy@163.com>
 
