@@ -15,8 +15,7 @@ WORKDIR /root
 
 # 设定密码
 RUN echo "root:$PASSWD" | chpasswd
- && sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config \
- && sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config \
+
 # 安装
 RUN apt-get -y update && \
     # tools
