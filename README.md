@@ -23,4 +23,5 @@ docker run -d -p 22:22 -p 5900:5900 -e PASSWD=abcd1234 -e SIZE=1024x768 gotoeasy
 - [x] VNC远程桌面连接时支持和本机之间相互复制粘贴文本
 
 # 截图
-![https://gotoeasy.github.io/screenshots/docker-ubuntu-desktop/vnc.jpg](https://gotoeasy.github.io/screenshots/docker-ubuntu-desktop/vnc.jpg)
+![http://gotoeasy.github.io/screenshots/docker-ubuntu-desktop/ssh.jpg](http://gotoeasy.github.io/screenshots/docker-ubuntu-desktop/ssh.jpg)
+![http://gotoeasy.github.io/screenshots/docker-ubuntu-desktop/vnc.jpg](http://gotoeasy.github.io/screenshots/docker-ubuntu-desktop/vnc.jpg)
