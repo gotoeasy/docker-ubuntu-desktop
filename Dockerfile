@@ -8,7 +8,9 @@ ENV DEBIAN_FRONTEND=noninteractive \
     SIZE=1600x840 \
     PASSWD=123456 \
     TZ=Asia/Shanghai \
-    LANG=zh_CN.UTF-8
+    LANG=zh_CN.UTF-8 \
+    LC_ALL=${LANG} \
+    LANGUAGE=${LANG}
 
 USER root
 WORKDIR /root
