@@ -49,11 +49,19 @@ ADD ./xfce/ /root/
 
 # 创建脚本文件
 RUN echo "#!/bin/bash\n" > /root/startup.sh && \
+    # 修改密码
+    echo 'if [ $PASSWD ] ; then' >> /root/startup.sh && \
+    echo '    echo "root:$PASSWD" | chpasswd' >> /root/startup.sh && \
+    echo '    echo $PASSWD | vncpasswd -f > /root/.vnc/passwd' >> /root/startup.sh && \
+    echo 'fi' >> /root/startup.sh && \
+    # SSH
     echo "/usr/sbin/sshd -D & source /root/.bashrc" >> /root/startup.sh && \
+    # VNC
     echo 'vncserver -kill :0' >> /root/startup.sh && \
     echo "rm -rfv /tmp/.X*-lock /tmp/.X11-unix" >> /root/startup.sh && \
     echo 'vncserver :0 -geometry $SIZE' >> /root/startup.sh && \
     echo 'tail -f /root/.vnc/*:0.log' >> /root/startup.sh && \
+    # 可执行脚本
     chmod +x /root/startup.sh
 
 # 用户目录不使用中文
