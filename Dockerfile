@@ -15,12 +15,19 @@ WORKDIR /root
 
 # 设定密码
 RUN echo "root:$PASSWD" | chpasswd
-
+ && sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config \
+ && sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config \
 # 安装
 RUN apt-get -y update && \
     # tools
     apt-get install -y wget curl net-tools locales bzip2 iputils-ping traceroute firefox firefox-locale-zh-hans ttf-wqy-microhei gedit ibus-pinyin && \
     locale-gen zh_CN.UTF-8 && \
+    # ssh
+    apt-get install -y openssh-server && \
+    mkdir -p /var/run/sshd && \
+    sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
+    sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config && \
+    mkdir -p /root/.ssh && \
     # TigerVNC
     wget -qO- https://dl.bintray.com/tigervnc/stable/tigervnc-1.9.0.x86_64.tar.gz | tar xz --strip 1 -C / && \
     mkdir -p /root/.vnc && \
@@ -37,20 +44,21 @@ RUN apt-get -y update && \
 ADD ./xfce/ /root/
 
 # 创建脚本文件
-RUN echo "#!/bin/bash\n" > /root/startup_vnc.sh && \
-    echo 'vncserver -kill :0' >> /root/startup_vnc.sh && \
-    echo "rm -rfv /tmp/.X*-lock /tmp/.X11-unix" >> /root/startup_vnc.sh && \
-    echo 'vncserver :0 -geometry $SIZE' >> /root/startup_vnc.sh && \
-    echo 'tail -f /root/.vnc/*:0.log' >> /root/startup_vnc.sh && \
-    chmod +x /root/startup_vnc.sh
+RUN echo "#!/bin/bash\n" > /root/startup.sh && \
+    echo "/usr/sbin/sshd -D & source /root/.bashrc" >> /root/startup.sh && \
+    echo 'vncserver -kill :0' >> /root/startup.sh && \
+    echo "rm -rfv /tmp/.X*-lock /tmp/.X11-unix" >> /root/startup.sh && \
+    echo 'vncserver :0 -geometry $SIZE' >> /root/startup.sh && \
+    echo 'tail -f /root/.vnc/*:0.log' >> /root/startup.sh && \
+    chmod +x /root/startup.sh
 
 # 用户目录不使用中文
 RUN LANG=C xdg-user-dirs-update --force
 
 
 # 导出特定端口
-EXPOSE 5900
+EXPOSE 22 5900
 
 # 启动脚本
-CMD ["/root/startup_vnc.sh"]
+CMD ["/root/startup.sh"]
 
