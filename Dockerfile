@@ -1,5 +1,5 @@
 # 基础镜像
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 # 维护者信息
 MAINTAINER gotoeasy <gotoeasy@163.com>
 
@@ -37,6 +37,9 @@ RUN apt-get -y update && \
     # xfce
     apt-get install -y xfce4 xfce4-terminal && \
     apt-get purge -y pm-utils xscreensaver* && \
+    # xrdp
+    apt-get install -y xrdp && \
+    echo "xfce4-session" > ~/.xsession && \
     # clean
     apt-get -y clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
@@ -58,7 +61,7 @@ RUN LANG=C xdg-user-dirs-update --force
 
 
 # 导出特定端口
-EXPOSE 22 5900
+EXPOSE 22 5900 3389
 
 # 启动脚本
 CMD ["/root/startup.sh"]
