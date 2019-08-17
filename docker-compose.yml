@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  ubuntu-desktop:
+    image: gotoeasy/ubuntu-desktop
+    ports:
+      - "22:22"
+      - "5900:5900"
+      - "13389:3389"
+    environment:
+      SIZE: 1600x840
+      PASSWD: 123456
