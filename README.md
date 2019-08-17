@@ -23,4 +23,4 @@ docker run -d -p 22:22 -p 5900:5900 -e PASSWD=abcd1234 -e SIZE=1024x768 gotoeasy
 - [x] 远程桌面支持和本地机器之间相互复制粘贴文本
 
 # 截图
-![https://github.com/gotoeasy/docker-ubuntu-desktop/blob/master/vnc.jpg](https://github.com/gotoeasy/docker-ubuntu-desktop/blob/master/vnc.jpg)
+![https://github.com/gotoeasy/docker-ubuntu-desktop/blob/master/img/vnc.jpg](https://github.com/gotoeasy/docker-ubuntu-desktop/blob/master/img/vnc.jpg)
