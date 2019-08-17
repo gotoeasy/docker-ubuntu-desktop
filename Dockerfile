@@ -41,6 +41,7 @@ RUN echo "#!/bin/bash\n" > /root/startup_vnc.sh && \
     echo 'vncserver -kill :0' >> /root/startup_vnc.sh && \
     echo "rm -rfv /tmp/.X*-lock /tmp/.X11-unix" >> /root/startup_vnc.sh && \
     echo 'vncserver :0 -geometry $SIZE' >> /root/startup_vnc.sh && \
+    echo 'tail -f /root/.vnc/*:0.log' >> /root/startup_vnc.sh && \
     chmod +x /root/startup_vnc.sh
 
 # 用户目录不使用中文
