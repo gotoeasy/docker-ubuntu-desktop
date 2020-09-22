@@ -36,5 +36,5 @@ docker-compose up
 - [x] VNC远程桌面连接时支持和本机之间相互复制粘贴文本
 
 # 截图
-![http://gotoeasy.github.io/screenshots/docker-ubuntu-desktop/ssh.jpg](http://gotoeasy.github.io/screenshots/docker-ubuntu-desktop/ssh.jpg)
-![http://gotoeasy.github.io/screenshots/docker-ubuntu-desktop/vnc.jpg](http://gotoeasy.github.io/screenshots/docker-ubuntu-desktop/vnc.jpg)
+![https://gotoeasy.github.io/screenshots/docker-ubuntu-desktop/ssh.jpg](https://gotoeasy.github.io/screenshots/docker-ubuntu-desktop/ssh.jpg)
+![https://gotoeasy.github.io/screenshots/docker-ubuntu-desktop/vnc.jpg](https://gotoeasy.github.io/screenshots/docker-ubuntu-desktop/vnc.jpg)
