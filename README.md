@@ -9,6 +9,11 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/gotoeasy/ubuntu-desktop)](https://hub.docker.com/r/gotoeasy/ubuntu-desktop)
 
 <br>
+2022年元旦，服务器中了挖矿木马xmrig，从告警上看，煞有其事的进行下载安装运行，思来想去不应该啊，<br>
+查看路径后发现是在某个docker容器中，最终锁定这个远程桌面容器，开放的默认端口，简易的默认密码没有修改！<br>
+所以，墙裂建议，修改端口映射！修改提高密码强度！！！<br>
+<br>
+
 
 # 例子
 ```
