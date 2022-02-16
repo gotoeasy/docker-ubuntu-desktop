@@ -27,6 +27,13 @@ docker run -d -p 22:22 -p 5900:5900 -e PASSWD=abcd1234 -e SIZE=1024x768 gotoeasy
 docker-compose up
 ```
 
+# 应用场景举例
+
+- [x] 练习
+- [x] 利用服务器资源，远程办公使用
+- [x] 在K8S集群中发布，等同集群内网环境中切入一台桌面机，方便确认问题
+
+
 # 内容
 
 - [x] `ubuntu:18.04`
