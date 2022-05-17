@@ -16,10 +16,10 @@
 # 例子
 ```
 // 以后台方式运行容器，指定SSH和VNC端口，默认密码为123456
-docker run --name=vnc -d -p 22:22 -p 5900:5900 gotoeasy/ubuntu-desktop
+docker run -d -p 22:22 -p 5900:5900 gotoeasy/ubuntu-desktop
 
 // 可以指定密码(必须6位以上)及分辨率
-docker run --name=vnc -d -p 5900:5900 -e PASSWD=abcd1234 -e SIZE=1024x768 gotoeasy/ubuntu-desktop
+docker run -d -p 5900:5900 -e PASSWD=abcd1234 -e SIZE=1024x768 gotoeasy/ubuntu-desktop
 
 // 用docker-compose方式启动，参考配置docker-compose.yml
 docker-compose up
@@ -33,14 +33,14 @@ docker-compose up
 
 # 更新履历
 
-## 版本`latest`,`1.10.1`
+### 版本`1.10.1`，`latest`
 
 - [x] 支持汉字复制黏贴，需使用`TigerVNC`官方客户端，见`https://github.com/TigerVNC/tigervnc`
 - [x] 增加预装软件`vim`，命令`vi`和`vim`都能用
 - [x] 增加预装软件谷歌浏览器`chrome`
 - [x] 默认无壁纸以便感官识别版本
 
-## 版本`1.9.0`
+### 版本`1.9.0`
 
 - [x] `ubuntu:18.04`
 - [x] 用户：`root`
