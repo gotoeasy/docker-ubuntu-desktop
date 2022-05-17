@@ -5,7 +5,7 @@ MAINTAINER gotoeasy <gotoeasy@163.com>
 
 # 环境变量
 ENV DEBIAN_FRONTEND=noninteractive \
-    SIZE=1600x840 \
+    SIZE=1024x768 \
     PASSWD=123456 \
     TZ=Asia/Shanghai \
     LANG=zh_CN.UTF-8 \
@@ -46,6 +46,8 @@ RUN apt-get -y update && \
     sed -e '/chrome/ s/^#*/#/' -i /opt/google/chrome/google-chrome && \
     echo 'exec -a "$0" "$HERE/chrome" "$@" --user-data-dir="$HOME/.config/chrome" --no-sandbox --disable-dev-shm-usage' >> /opt/google/chrome/google-chrome && \
     rm -f google-chrome-stable_current_amd64.deb && \
+    # mysql客户端
+    apt-get install -y mysql-workbench && \
     # clean
     apt-get -y clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

@@ -38,6 +38,7 @@ docker-compose up
 - [x] 支持汉字复制黏贴，需使用`TigerVNC`官方客户端，见`https://github.com/TigerVNC/tigervnc`
 - [x] 增加预装软件`vim`，命令`vi`和`vim`都能用
 - [x] 增加预装软件谷歌浏览器`chrome`
+- [x] 增加预装软件数据库客户端`mysql-workbench`
 - [x] 默认无壁纸以便感官识别版本
 
 ### 版本`1.9.0`
