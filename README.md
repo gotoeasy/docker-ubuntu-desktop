@@ -1,6 +1,6 @@
 # 简介
 
-在`ubuntu:18.04`的基础上，安装中文桌面环境，支持SSH和VNC远程连接
+在`ubuntu:18.04`的基础上，安装中文桌面环境，支持SSH和VNC远程连接以及Win远程桌面
 <br>
 
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/gotoeasy/ubuntu-desktop)](https://hub.docker.com/r/gotoeasy/ubuntu-desktop)
@@ -16,10 +16,10 @@
 # 例子
 ```
 // 以后台方式运行容器，指定SSH和VNC端口，默认密码为123456
-docker run -d -p 22:22 -p 5900:5900 gotoeasy/ubuntu-desktop
+docker run --name=vnc -d -p 22:22 -p 5900:5900 gotoeasy/ubuntu-desktop
 
 // 可以指定密码(必须6位以上)及分辨率
-docker run -d -p 22:22 -p 5900:5900 -e PASSWD=abcd1234 -e SIZE=1024x768 gotoeasy/ubuntu-desktop
+docker run --name=vnc -d -p 5900:5900 -e PASSWD=abcd1234 -e SIZE=1024x768 gotoeasy/ubuntu-desktop
 
 // 用docker-compose方式启动，参考配置docker-compose.yml
 docker-compose up
@@ -31,8 +31,16 @@ docker-compose up
 - [x] 利用服务器资源，远程办公使用
 - [x] 在K8S集群中发布，等同集群内网环境中切入一台桌面机，方便确认问题
 
+# 更新履历
 
-# 内容
+## 版本`gotoeasy/ubuntu-desktop:1.10.1`
+
+- [x] 支持汉字复制黏贴，需使用`TigerVNC`官方客户端，见`https://github.com/TigerVNC/tigervnc`
+- [x] 增加预装软件`vim`，命令`vi`和`vim`都能用
+- [x] 增加预装软件谷歌浏览器`chrome`
+- [x] 默认无壁纸以便感官识别版本
+
+## 版本`gotoeasy/ubuntu-desktop:1.9.0`
 
 - [x] `ubuntu:18.04`
 - [x] 用户：`root`

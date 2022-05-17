@@ -40,6 +40,12 @@ RUN apt-get -y update && \
     # xrdp
     apt-get install -y xrdp && \
     echo "xfce4-session" > ~/.xsession && \
+    # 谷歌浏览器
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+    apt-get install -y -f ./google-chrome-stable_current_amd64.deb && \
+    sed -e '/chrome/ s/^#*/#/' -i /opt/google/chrome/google-chrome && \
+    echo 'exec -a "$0" "$HERE/chrome" "$@" --user-data-dir="$HOME/.config/chrome" --no-sandbox --disable-dev-shm-usage' >> /opt/google/chrome/google-chrome && \
+    rm -f google-chrome-stable_current_amd64.deb && \
     # clean
     apt-get -y clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
