@@ -33,14 +33,14 @@ docker-compose up
 
 # 更新履历
 
-## 版本`gotoeasy/ubuntu-desktop:1.10.1`
+## 版本`latest`,`1.10.1`
 
 - [x] 支持汉字复制黏贴，需使用`TigerVNC`官方客户端，见`https://github.com/TigerVNC/tigervnc`
 - [x] 增加预装软件`vim`，命令`vi`和`vim`都能用
 - [x] 增加预装软件谷歌浏览器`chrome`
 - [x] 默认无壁纸以便感官识别版本
 
-## 版本`gotoeasy/ubuntu-desktop:1.9.0`
+## 版本`1.9.0`
 
 - [x] `ubuntu:18.04`
 - [x] 用户：`root`
