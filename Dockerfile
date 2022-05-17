@@ -21,7 +21,7 @@ RUN echo "root:$PASSWD" | chpasswd
 # 安装
 RUN apt-get -y update && \
     # tools
-    apt-get install -y wget curl net-tools locales bzip2 unzip iputils-ping traceroute firefox firefox-locale-zh-hans ttf-wqy-microhei gedit ibus-pinyin && \
+    apt-get install -y vim wget curl net-tools locales bzip2 unzip iputils-ping traceroute firefox firefox-locale-zh-hans ttf-wqy-microhei gedit ibus-pinyin && \
     locale-gen zh_CN.UTF-8 && \
     # ssh
     apt-get install -y openssh-server && \
