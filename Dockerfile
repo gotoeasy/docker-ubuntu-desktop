@@ -21,8 +21,9 @@ RUN echo "root:$PASSWD" | chpasswd
 # 安装
 RUN apt-get -y update && \
     # tools
-    apt-get install -y vim git subversion wget curl net-tools locales iputils-ping traceroute firefox firefox-locale-zh-hans ttf-wqy-microhei gedit ibus-pinyin && \
+    apt-get install -y vim git subversion wget curl tree net-tools locales iputils-ping traceroute firefox firefox-locale-zh-hans ttf-wqy-microhei gedit ibus-pinyin && \
     locale-gen zh_CN.UTF-8 && \
+    apt-transport-https gpg && \
     # TigerVNC
     wget -qO- https://nchc.dl.sourceforge.net/project/tigervnc/stable/1.10.1/tigervnc-1.10.1.x86_64.tar.gz | tar xz --strip 1 -C / && \
     mkdir -p /root/.vnc && \
