@@ -9,7 +9,7 @@ RUN apt-get -y update && \
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg && \
     mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg && \
     echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list && \
-    apt-get install -y code && \
+    apt-get install -y code build-essential tree && \
     sed -i 's/--unity-launch/--no-sandbox --unity-launch/' /usr/share/applications/code.desktop && \
     # go
     wget https://golang.google.cn/dl/go1.18.3.linux-amd64.tar.gz && \
@@ -27,7 +27,6 @@ RUN apt-get -y update && \
     echo 'func main() {' >> ~/Desktop/project/hello/main.go && \
     echo '    fmt.Println("hello")' >> ~/Desktop/project/hello/main.go && \
     echo '}' >> ~/Desktop/project/hello/main.go && \
-    apt-get install -y build-essential tree && \
     # clean
     apt-get -y clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
