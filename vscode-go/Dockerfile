@@ -15,11 +15,14 @@ RUN \
     apt-get install -y tree && \
     sed -i 's/--unity-launch/--no-sandbox --unity-launch/' /usr/share/applications/code.desktop && \
     # go
+    cd && \
     wget https://golang.google.cn/dl/go1.18.3.linux-amd64.tar.gz && \
     tar -C /usr/local -xzf go1.18.3.linux-amd64.tar.gz && \
-    echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc && \
-    echo 'export GO111MODULE=on' >> ~/.bashrc && \
-    echo 'export GOPROXY=https://mirrors.aliyun.com/goproxy/' >> ~/.bashrc && \
+    rm -f go1.18.3.linux-amd64.tar.gz && \
+    echo '' >> /etc/profile && \
+    echo 'export PATH=$PATH:/usr/local/go/bin' >> /etc/profile && \
+    echo 'export GO111MODULE=on' >> /etc/profile && \
+    echo 'export GOPROXY=https://goproxy.cn,direct' >> /etc/profile && \
     mkdir -p ~/Desktop/project/hello && \
     cd ~/Desktop/project/hello && \
     /usr/local/go/bin/go mod init hello && \
@@ -28,6 +31,8 @@ RUN \
     echo 'func main() {' >> ~/Desktop/project/hello/main.go && \
     echo '    fmt.Println("hello")' >> ~/Desktop/project/hello/main.go && \
     echo '}' >> ~/Desktop/project/hello/main.go && \
+    /usr/local/go/bin/go install -v golang.org/x/tools/gopls@latest && \
+    /usr/local/go/bin/go install -v github.com/go-delve/delve/cmd/dlv@latest && \
     # clean
     apt-get -y clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
