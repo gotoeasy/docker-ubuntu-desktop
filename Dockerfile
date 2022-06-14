@@ -18,9 +18,8 @@ WORKDIR /root
 # 设定密码
 RUN echo "root:$PASSWD" | chpasswd
 
-RUN \
-  # 安装
-    apt-get -y update && \
+# 安装
+RUN apt-get -y update && \
     # tools
     apt-get install -y vim git subversion wget curl tree net-tools locales iputils-ping traceroute firefox firefox-locale-zh-hans ttf-wqy-microhei gedit ibus-pinyin locale-gen zh_CN.UTF-8 && \
     apt-transport-https gpg && \
