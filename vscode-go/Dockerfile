@@ -1,5 +1,5 @@
 # 基础镜像
-FROM ubuntu-desktop:1.10.1-base
+FROM gotoeasy/ubuntu-desktop:1.10.1-base
 # 维护者信息
 MAINTAINER gotoeasy <gotoeasy@163.com>
 
