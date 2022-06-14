@@ -21,9 +21,14 @@ RUN echo "root:$PASSWD" | chpasswd
 # 安装
 RUN apt-get -y update && \
     # tools
-    apt-get install -y vim git subversion wget curl net-tools locales iputils-ping traceroute firefox firefox-locale-zh-hans ttf-wqy-microhei gedit ibus-pinyin && \
+    apt-get install -y vim git subversion wget curl net-tools locales bzip2 unzip iputils-ping traceroute firefox firefox-locale-zh-hans ttf-wqy-microhei gedit ibus-pinyin && \
     locale-gen zh_CN.UTF-8 && \
-    apt-transport-https gpg tree && \
+    # ssh
+    apt-get install -y openssh-server && \
+    mkdir -p /var/run/sshd && \
+    sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
+    sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config && \
+    mkdir -p /root/.ssh && \
     # TigerVNC
     wget -qO- https://nchc.dl.sourceforge.net/project/tigervnc/stable/1.10.1/tigervnc-1.10.1.x86_64.tar.gz | tar xz --strip 1 -C / && \
     mkdir -p /root/.vnc && \
@@ -32,6 +37,17 @@ RUN apt-get -y update && \
     # xfce
     apt-get install -y xfce4 xfce4-terminal && \
     apt-get purge -y pm-utils xscreensaver* && \
+    # xrdp
+    apt-get install -y xrdp && \
+    echo "xfce4-session" > ~/.xsession && \
+    # 谷歌浏览器
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+    apt-get install -y -f ./google-chrome-stable_current_amd64.deb && \
+    sed -e '/chrome/ s/^#*/#/' -i /opt/google/chrome/google-chrome && \
+    echo 'exec -a "$0" "$HERE/chrome" "$@" --user-data-dir="$HOME/.config/chrome" --no-sandbox --disable-dev-shm-usage' >> /opt/google/chrome/google-chrome && \
+    rm -f google-chrome-stable_current_amd64.deb && \
+    # mysql客户端
+    apt-get install -y mysql-workbench && \
     # clean
     apt-get -y clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
@@ -46,6 +62,8 @@ RUN echo "#!/bin/bash\n" > /root/startup.sh && \
     echo '    echo "root:$PASSWD" | chpasswd' >> /root/startup.sh && \
     echo '    echo $PASSWD | vncpasswd -f > /root/.vnc/passwd' >> /root/startup.sh && \
     echo 'fi' >> /root/startup.sh && \
+    # SSH
+    echo "/usr/sbin/sshd -D & source /root/.bashrc" >> /root/startup.sh && \
     # VNC
     echo 'vncserver -kill :0' >> /root/startup.sh && \
     echo "rm -rfv /tmp/.X*-lock /tmp/.X11-unix" >> /root/startup.sh && \
@@ -59,7 +77,7 @@ RUN LANG=C xdg-user-dirs-update --force
 
 
 # 导出特定端口
-EXPOSE 5900
+EXPOSE 22 5900 3389
 
 # 启动脚本
 CMD ["/root/startup.sh"]
