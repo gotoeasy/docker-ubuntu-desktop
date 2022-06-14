@@ -14,7 +14,6 @@ RUN \
     # go
     wget https://golang.google.cn/dl/go1.18.3.linux-amd64.tar.gz && \
     tar -C /usr/local -xzf go1.18.3.linux-amd64.tar.gz && \
-    rm -f go1.18.3.linux-amd64.tar.gz && \
     echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc && \
     echo 'export GO111MODULE=on' >> ~/.bashrc && \
     echo 'export GOPROXY=https://mirrors.aliyun.com/goproxy/' >> ~/.bashrc && \
