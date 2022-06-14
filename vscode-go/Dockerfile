@@ -4,12 +4,12 @@ FROM gotoeasy/ubuntu-desktop:1.10.1-base
 MAINTAINER gotoeasy <gotoeasy@163.com>
 
 # 安装
-RUN apt-get -y update && \
+RUN \
     # VsCode
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg && \
     mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg && \
     echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list && \
-    apt-get install -y code build-essential tree && \
+    apt-get -y update && apt-get install -y code build-essential tree && \
     sed -i 's/--unity-launch/--no-sandbox --unity-launch/' /usr/share/applications/code.desktop && \
     # go
     wget https://golang.google.cn/dl/go1.18.3.linux-amd64.tar.gz && \
