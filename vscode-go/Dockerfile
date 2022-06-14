@@ -20,10 +20,9 @@ RUN \
     echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc && \
     echo 'export GO111MODULE=on' >> ~/.bashrc && \
     echo 'export GOPROXY=https://mirrors.aliyun.com/goproxy/' >> ~/.bashrc && \
-    source ~/.bashrc && \
     mkdir -p ~/Desktop/project/hello && \
     cd ~/Desktop/project/hello && \
-    go mod init hello && \
+    /usr/local/go/bin/go mod init hello && \
     echo 'package main' > ~/Desktop/project/hello/main.go && \
     echo 'import "fmt"' >> ~/Desktop/project/hello/main.go && \
     echo 'func main() {' >> ~/Desktop/project/hello/main.go && \
