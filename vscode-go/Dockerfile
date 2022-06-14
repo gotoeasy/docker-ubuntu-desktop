@@ -19,10 +19,10 @@ RUN \
     wget https://golang.google.cn/dl/go1.18.3.linux-amd64.tar.gz && \
     tar -C /usr/local -xzf go1.18.3.linux-amd64.tar.gz && \
     rm -f go1.18.3.linux-amd64.tar.gz && \
-    echo '' >> /etc/profile && \
-    echo 'export PATH=$PATH:/usr/local/go/bin' >> /etc/profile && \
-    echo 'export GO111MODULE=on' >> /etc/profile && \
-    echo 'export GOPROXY=https://goproxy.cn,direct' >> /etc/profile && \
+    echo '' >> ~/.bashrc && \
+    echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc && \
+    echo 'export GO111MODULE=on' >> ~/.bashrc && \
+    echo 'export GOPROXY=https://goproxy.cn,direct' >> ~/.bashrc && \
     mkdir -p ~/Desktop/project/hello && \
     cd ~/Desktop/project/hello && \
     /usr/local/go/bin/go mod init hello && \
