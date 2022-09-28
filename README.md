@@ -33,6 +33,11 @@ docker-compose up
 
 # 更新履历
 
+### 版本`1.12.0`，`latest`
+
+- [x] 升级`TigerVNC`版本至`1.12.0`，官方见`https://github.com/TigerVNC/tigervnc`
+- [x] 其他预装软件同`1.10.1`版本
+
 ### 版本`1.10.1`，`latest`
 
 - [x] 支持汉字复制黏贴，需使用`TigerVNC`官方客户端，见`https://github.com/TigerVNC/tigervnc`
