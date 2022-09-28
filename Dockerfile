@@ -21,17 +21,16 @@ RUN echo "root:$PASSWD" | chpasswd
 # 安装
 RUN apt-get -y update && \
     # tools
-    #apt-get install -y vim git subversion wget curl net-tools locales bzip2 unzip iputils-ping traceroute firefox firefox-locale-zh-hans ttf-wqy-microhei gedit ibus-pinyin && \
-    apt-get install -y vim git subversion wget curl net-tools locales bzip2 unzip iputils-ping traceroute ttf-wqy-microhei gedit ibus-pinyin && \
+    apt-get install -y vim git subversion wget curl net-tools locales bzip2 unzip iputils-ping traceroute firefox firefox-locale-zh-hans ttf-wqy-microhei gedit ibus-pinyin && \
     locale-gen zh_CN.UTF-8 && \
     # ssh
-    #apt-get install -y openssh-server && \
-    #mkdir -p /var/run/sshd && \
-    #sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
-    #sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config && \
-    #mkdir -p /root/.ssh && \
+    apt-get install -y openssh-server && \
+    mkdir -p /var/run/sshd && \
+    sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
+    sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config && \
+    mkdir -p /root/.ssh && \
     # TigerVNC
-    wget -qO- https://nchc.dl.sourceforge.net/project/tigervnc/stable/1.12.0/tigervnc-1.12.0.x86_64.tar.gz | tar xz --strip 1 -C / && \
+    wget -qO- https://nchc.dl.sourceforge.net/project/tigervnc/stable/1.11.90/tigervnc-1.11.90.x86_64.tar.gz | tar xz --strip 1 -C / && \
     mkdir -p /root/.vnc && \
     echo $PASSWD | vncpasswd -f > /root/.vnc/passwd && \
     chmod 600 /root/.vnc/passwd && \
@@ -39,8 +38,8 @@ RUN apt-get -y update && \
     apt-get install -y xfce4 xfce4-terminal && \
     apt-get purge -y pm-utils xscreensaver* && \
     # xrdp
-    #apt-get install -y xrdp && \
-    #echo "xfce4-session" > ~/.xsession && \
+    apt-get install -y xrdp && \
+    echo "xfce4-session" > ~/.xsession && \
     # 谷歌浏览器
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
     apt-get install -y -f ./google-chrome-stable_current_amd64.deb && \
@@ -48,7 +47,7 @@ RUN apt-get -y update && \
     echo 'exec -a "$0" "$HERE/chrome" "$@" --user-data-dir="$HOME/.config/chrome" --no-sandbox --disable-dev-shm-usage' >> /opt/google/chrome/google-chrome && \
     rm -f google-chrome-stable_current_amd64.deb && \
     # mysql客户端
-    #apt-get install -y mysql-workbench && \
+    apt-get install -y mysql-workbench && \
     # clean
     apt-get -y clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
