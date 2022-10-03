@@ -3,8 +3,8 @@
 在`ubuntu:18.04`的基础上，安装中文桌面环境，支持SSH和VNC远程连接以及Win远程桌面
 <br>
 
-[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/gotoeasy/ubuntu-desktop)](https://hub.docker.com/r/gotoeasy/ubuntu-desktop)
 [![Docker Pulls](https://img.shields.io/docker/pulls/gotoeasy/ubuntu-desktop)](https://hub.docker.com/r/gotoeasy/ubuntu-desktop)
+[![GitHub release](https://img.shields.io/github/release/gotoeasy/ubuntu-desktop.svg)](https://github.com/gotoeasy/ubuntu-desktop/releases/latest)
 
 <br>
 2022年元旦，服务器中了挖矿木马xmrig，从告警上看，煞有其事的进行下载安装运行，思来想去不应该啊，<br>
