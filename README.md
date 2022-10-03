@@ -4,7 +4,7 @@
 <br>
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/gotoeasy/ubuntu-desktop)](https://hub.docker.com/r/gotoeasy/ubuntu-desktop)
-[![GitHub release](https://img.shields.io/github/release/gotoeasy/ubuntu-desktop.svg)](https://github.com/gotoeasy/ubuntu-desktop/releases/latest)
+[![GitHub release](https://img.shields.io/github/release/gotoeasy/docker-ubuntu-desktop.svg)](https://github.com/gotoeasy/docker-ubuntu-desktop/releases/latest)
 
 <br>
 2022年元旦，服务器中了挖矿木马xmrig，从告警上看，煞有其事的进行下载安装运行，思来想去不应该啊，<br>
