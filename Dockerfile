@@ -79,7 +79,7 @@ RUN LANG=C xdg-user-dirs-update --force
 
 
 # 导出特定端口
-EXPOSE 22 5900 3389
+EXPOSE 22 5900 3389 6001 6002 6003 6004 6005 6006 6007 6008 6009
 
 # 启动脚本
 CMD ["/root/startup.sh"]
