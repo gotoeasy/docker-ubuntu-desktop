@@ -5,6 +5,7 @@
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/gotoeasy/ubuntu-desktop)](https://hub.docker.com/r/gotoeasy/ubuntu-desktop)
 [![GitHub release](https://img.shields.io/github/release/gotoeasy/docker-ubuntu-desktop.svg)](https://github.com/gotoeasy/docker-ubuntu-desktop/releases/latest)
+[![License](https://github.com/gotoeasy/docker-ubuntu-desktop/blob/master/LICENSE)](https://img.shields.io/github/license/gotoeasy/docker-ubuntu-desktop)
 
 <br>
 2022年元旦，服务器中了挖矿木马xmrig，从告警上看，煞有其事的进行下载安装运行，思来想去不应该啊，<br>
@@ -14,14 +15,14 @@
 
 
 # 例子
-```
-// 以后台方式运行容器，指定SSH和VNC端口，默认密码为123456
+```shell
+# 以后台方式运行容器，指定SSH和VNC端口，默认密码为123456
 docker run -d -p 22:22 -p 5900:5900 gotoeasy/ubuntu-desktop
 
-// 可以指定密码(必须6位以上)及分辨率
+# 可以指定密码(必须6位以上)及分辨率
 docker run -d -p 5900:5900 -e PASSWD=abcd1234 -e SIZE=1024x768 gotoeasy/ubuntu-desktop
 
-// 用docker-compose方式启动，参考配置docker-compose.yml
+# 用docker-compose方式启动，参考配置docker-compose.yml
 docker-compose up
 ```
 
