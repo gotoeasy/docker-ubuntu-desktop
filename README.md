@@ -81,3 +81,4 @@ docker-compose up
 # 截图
 ![https://gotoeasy.github.io/screenshots/docker-ubuntu-desktop/ssh.jpg](https://gotoeasy.github.io/screenshots/docker-ubuntu-desktop/ssh.jpg)
 ![https://gotoeasy.github.io/screenshots/docker-ubuntu-desktop/vnc.jpg](https://gotoeasy.github.io/screenshots/docker-ubuntu-desktop/vnc.jpg)
+![https://gotoeasy.github.io/screenshots/docker-ubuntu-desktop/vnc2.jpg](https://gotoeasy.github.io/screenshots/docker-ubuntu-desktop/vnc2.jpg)
