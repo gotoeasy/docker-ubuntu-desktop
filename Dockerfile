@@ -30,7 +30,7 @@ RUN apt-get -y update && \
     sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config && \
     mkdir -p /root/.ssh && \
     # TigerVNC
-    wget -qO- https://nchc.dl.sourceforge.net/project/tigervnc/stable/1.12.0/tigervnc-1.12.0.x86_64.tar.gz | tar xz --strip 1 -C / && \
+    wget -qO- https://nchc.dl.sourceforge.net/project/tigervnc/stable/1.13.1/tigervnc-1.13.1.x86_64.tar.gz | tar xz --strip 1 -C / && \
     mkdir -p /root/.vnc && \
     echo $PASSWD | vncpasswd -f > /root/.vnc/passwd && \
     chmod 600 /root/.vnc/passwd && \
