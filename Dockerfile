@@ -52,6 +52,10 @@ RUN apt-get -y update && \
     apt-get -y clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+# 使用策略避免chrome出现禁用沙箱警告
+RUN mkdir -p /etc/opt/chrome/policies/managed/ && \
+echo '{"CommandLineFlagSecurityWarningsEnabled": false}' > /etc/opt/chrome/policies/managed/default_managed_policy.json
+
 # 配置xfce图形界面
 ADD ./xfce/ /root/
 
