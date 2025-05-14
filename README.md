@@ -88,7 +88,3 @@ docker-compose up
 ![https://gotoeasy.github.io/screenshots/docker-ubuntu-desktop/vnc.jpg](https://gotoeasy.github.io/screenshots/docker-ubuntu-desktop/vnc.jpg)
 ![https://gotoeasy.github.io/screenshots/docker-ubuntu-desktop/vnc2.jpg](https://gotoeasy.github.io/screenshots/docker-ubuntu-desktop/vnc2.jpg)
 
-
-## Star历史
-
-![Star History Chart](https://api.star-history.com/svg?repos=gotoeasy/docker-ubuntu-desktop&type=Date)
